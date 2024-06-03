@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  spring-app:
+    image: mehdihanini:latest
+    ports:
+      - "7070:7070"
+    depends_on:
+      - mysql-db2
+
+
+
+  mysql-db2:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_DATABASE: spring_db2test
+    ports:
+      - "3308:3308" # Use a different host port for the new MySQL service
